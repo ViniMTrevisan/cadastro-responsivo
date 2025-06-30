@@ -12,11 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $caminho = $diretorio . basename($foto['name']);
 
   if (move_uploaded_file($foto['tmp_name'], $caminho)) {
-    echo "Cadastro salvo com sucesso!";
+    echo "Cadastro salvo com sucesso! Nome: " . $nome . ", Foto salva em: " . $caminho;
   } else {
-    echo "Erro ao enviar o arquivo.";
+    echo "Erro ao enviar o arquivo. Código de erro: " . $foto['error'];
   }
 } else {
-  echo "Método inválido.";
+  echo "Método inválido. Este script deve ser acessado via POST de um formulário.";
 }
 ?>
